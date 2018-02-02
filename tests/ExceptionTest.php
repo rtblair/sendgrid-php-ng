@@ -1,5 +1,5 @@
 <?php
-namespace SendGrid\Tests;
+namespace Fastglass\SendGrid\Tests;
 
 class SendGridTest_Exception extends \PHPUnit_Framework_TestCase {
 
@@ -7,8 +7,8 @@ class SendGridTest_Exception extends \PHPUnit_Framework_TestCase {
   }
 
   public function testConstructionException() {
-    $err = new \SendGrid\Exception();
-    $this->assertEquals(get_class($err), 'SendGrid\Exception');
+    $err = new \Fastglass\SendGrid\Exception();
+    $this->assertEquals(get_class($err), 'Fastglass\SendGrid\Exception');
   }
 
 }

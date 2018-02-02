@@ -1,9 +1,9 @@
 <?php
 
-namespace SendGrid\Tests;
+namespace Fastglass\SendGrid\Tests;
 
 use \Mockery as m;
-use \SendGrid as s;
+use \Fastglass\SendGrid as s;
 
 class SendGridTest_Client extends \PHPUnit_Framework_TestCase {
 
@@ -19,7 +19,7 @@ class SendGridTest_Client extends \PHPUnit_Framework_TestCase {
    */
   public function testVersion() {
     $this->assertEquals(s\Client::VERSION, '1.0.8');
-    $this->assertEquals(json_decode(file_get_contents('composer.json'))->version, \SendGrid\Client::VERSION);
+    $this->assertEquals(json_decode(file_get_contents('composer.json'))->version, \Fastglass\SendGrid\Client::VERSION);
   }
 
   /**
@@ -27,7 +27,7 @@ class SendGridTest_Client extends \PHPUnit_Framework_TestCase {
    */
   public function testInitWithApiKey() {
     $sendgrid = new s\Client('token123456789');
-    $this->assertEquals('SendGrid\Client', get_class($sendgrid));
+    $this->assertEquals('Fastglass\SendGrid\Client', get_class($sendgrid));
     $this->assertEquals($sendgrid->apiKey, 'token123456789');
   }
 
@@ -36,7 +36,7 @@ class SendGridTest_Client extends \PHPUnit_Framework_TestCase {
    */
   public function testInitWithApiKeyOptions() {
     $sendgrid = new s\Client('token123456789', ['foo' => 'bar']);
-    $this->assertEquals('SendGrid\Client', get_class($sendgrid));
+    $this->assertEquals('Fastglass\SendGrid\Client', get_class($sendgrid));
   }
 
   /**
@@ -44,7 +44,7 @@ class SendGridTest_Client extends \PHPUnit_Framework_TestCase {
    */
   public function testInitWithProxyOption() {
     $sendgrid = new s\Client('token123456789', ['proxy' => 'myproxy.net:3128']);
-    $this->assertEquals('SendGrid\Client', get_class($sendgrid));
+    $this->assertEquals('Fastglass\SendGrid\Client', get_class($sendgrid));
     $options = $sendgrid->getOptions();
     $this->assertTrue(isset($options['proxy']));
   }

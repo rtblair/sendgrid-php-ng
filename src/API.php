@@ -3,7 +3,7 @@
  * API specific integration
  */
 
-namespace SendGrid;
+namespace Fastglass\SendGrid;
 
 use Client;
 use Response;

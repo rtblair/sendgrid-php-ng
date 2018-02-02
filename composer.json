@@ -34,12 +34,12 @@
   "type": "library",
   "autoload": {
     "psr-4": {
-      "SendGrid\\": "src/"
+      "Fastglass\\SendGrid\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "SendGrid\\Tests\\": "tests/"
+      "Fastglass\\SendGrid\\Tests\\": "tests/"
     }
   },
   "scripts": {

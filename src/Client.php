@@ -1,5 +1,5 @@
 <?php
-namespace SendGrid;
+namespace Fastglass\SendGrid;
 
 use GuzzleHttp\Exception\ClientException;
 
@@ -99,17 +99,17 @@ class Client {
    * Makes a post request to SendGrid to send an email from an email object.
    * Returns response codes after sending and will throw exceptions on faults.
    *
-   * @param \SendGrid\Email $email
-   * @return \SendGrid\Response
-   * @throws \SendGrid\Exception
+   * @param \Fastglass\SendGrid\Email $email
+   * @return \Fastglass\SendGrid\Response
+   * @throws \Fastglass\SendGrid\Exception
    */
-  public function send(\SendGrid\Email $email) {
+  public function send(\Fastglass\SendGrid\Email $email) {
     $form = $email->toWebFormat();
 
     $response = $this->postRequest($this->endpoint, $form);
 
     if ($response->code != 200 && $this->options['raise_exceptions']) {
-      throw new \SendGrid\Exception($response->raw_body, $response->code);
+      throw new \Fastglass\SendGrid\Exception($response->raw_body, $response->code);
     }
 
     return $response;
@@ -121,7 +121,7 @@ class Client {
    *
    * @param string $endpoint
    * @param array $form
-   * @return bool|\SendGrid\Response
+   * @return bool|\Fastglass\SendGrid\Response
    */
   public function postRequest($endpoint, $form) {
     $requestoptions = [];
@@ -153,7 +153,7 @@ class Client {
       echo '</pre>';
       return FALSE;
     }
-    $response = new \SendGrid\Response($res->getStatusCode(), $res->getHeaders(), $res->getBody(TRUE), json_decode($res->getBody(TRUE)));
+    $response = new \Fastglass\SendGrid\Response($res->getStatusCode(), $res->getHeaders(), $res->getBody(TRUE), json_decode($res->getBody(TRUE)));
 
     return $response;
   }
